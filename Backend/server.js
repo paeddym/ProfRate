@@ -61,17 +61,7 @@ app.get("/profs/:id", async function (req, res) {
 });
 
 app.put("/profs/:id", async function (req, res) {
-   const profId = req.params.id;
 
-   const query ={}
-   let queryResult = await collection.find(query).toArray();
-
-   const shouldDelete = queryResult[profId];                    //keine zeit mehr das richtig zu machen
-
-   await collection.deleteOne({ id: shouldDelete.id});
-
-   queryResult = await collection.find(query).toArray();
-   res.status(200).send(queryResult);
 });
 
 app.delete("/profs/:id", async function (req, res) {
